@@ -13,8 +13,7 @@ public class InOut {
         fichiers[2] = "c_medium";
         fichiers[3] = "d_big";
 
-        String source = "src/resources/in/";
-        String destination = "src/resources/out/";
+        String source = "src/ressources/in/";
         Pizza[] test = new Pizza[4];
         int a=0;
         for(String fichier : fichiers) {
@@ -46,13 +45,31 @@ public class InOut {
 
                     i = i + 1;
                 }
-                test[a] = new Pizza(min, max, lignes, colonnes, pizza);
+                test[a] = new Pizza(min, max, lignes, colonnes, pizza, fichier);
+                a++;
                 br.close();
             } catch(Exception e) {
                 e.printStackTrace();
             }
         }
         return test;
+    }
+
+
+
+    public static void ecriture(String solution, String fichier) {
+
+        String destination = "src/ressources/out/";
+
+        try {
+
+            PrintWriter writer = new PrintWriter(destination + fichier + ".out");
+            writer.print(solution);
+            writer.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
