@@ -2,7 +2,9 @@ public class Start {
 
     public static void main(String [] args)
     {
-       System.out.println("Hello");
+        Pizza[] p = InOut.lecture();
+        System.out.println(p[0]);
+
     }
 
 }
