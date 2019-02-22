@@ -6,7 +6,8 @@ public class InOut {
 
 
     public static Pizza[] lecture() {
-        String[] fichiers = new String[4];
+        int nbFichier = 4;
+        String[] fichiers = new String[nbFichier];
 
         fichiers[0] = "a_example";
         fichiers[1] = "b_small";
@@ -14,7 +15,7 @@ public class InOut {
         fichiers[3] = "d_big";
 
         String source = "src/ressources/in/";
-        Pizza[] test = new Pizza[4];
+        Pizza[] test = new Pizza[nbFichier];
         int a=0;
         for(String fichier : fichiers) {
             int min;

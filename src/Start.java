@@ -4,9 +4,10 @@ public class Start {
     {
         Pizza[] p = InOut.lecture();
         for(Pizza pi : p) {
-
             System.out.println(pi);
-            InOut.ecriture(pi.toString(), pi.fichier());
+            //System.out.println(pi.resolution());
+
+            InOut.ecriture(pi.resolution(), pi.fichier());
         }
 
     }

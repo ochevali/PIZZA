@@ -15,7 +15,7 @@ public class Pizza {
         fichier = fichiersSource;
     }
     public String toString(){
-        return "fichier : "+fichier;
+        return "fichier : "+fichier+"\nLignes : "+lignes+"\nColonnes : "+colonnes;
     }
     public String fichier(){
         return fichier;
@@ -34,5 +34,40 @@ public class Pizza {
     }
     public char[][] pizza(){
         return pizza;
+    }
+
+    public String resolution(){
+        int count = 0;
+        int ligDeb;
+        int colDeb;
+        int ligFin = (max/2)-1;
+        int colFin = (2-1);
+        boolean tomate;
+        boolean champ;
+
+        StringBuilder sol = new StringBuilder("");
+        for(ligDeb= 0; (ligDeb+ligFin)<lignes; ligDeb = ligDeb+ligFin){
+                        ligFin=(max/2);
+
+            for(colDeb = 0; (colDeb+colFin)<colonnes; colDeb = colDeb+colFin){
+                            colFin = 2;
+                tomate = false;
+                champ = false;
+                for(int i = ligDeb; i<ligDeb+ligFin; i++){
+                    for(int j = colDeb; j< colDeb+colFin; j++){
+                        if(pizza[i][j]=='T') tomate = true;
+                        if(pizza[i][j]=='M') champ = true;
+                    }
+                }
+                if(tomate&&champ){
+                    count++;
+                    sol.append(ligDeb+" "+colDeb+" "+(ligDeb+ligFin-1)+" "+(colDeb+colFin-1)+"\n");
+                }
+            }
+        }
+
+
+
+        return ""+count+"\n"+sol.toString();
     }
 }
